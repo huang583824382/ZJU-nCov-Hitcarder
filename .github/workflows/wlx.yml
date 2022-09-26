@@ -10,7 +10,7 @@ on:
     branches: [ "wlx" ]
   workflow_dispatch:
   schedule:
-    - cron: '0 00 * * *'
+    - cron: '0 20 * * *'
 
 permissions:
   contents: read
