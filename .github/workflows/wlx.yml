@@ -24,7 +24,7 @@ jobs:
         include:
           - username: ZJU_USERNAME_WLX
             password: ZJU_PASSWORD_WLX
-            dingtalk_token: DINGTALK_TOKEN
+            dingtalk_token: DINGTALK_TOKEN_WLX
             pushplus_token: PUSHPLUS_TOKEN
             serverchan_key: SERVERCHAN_KEY
     steps:
