@@ -9,8 +9,8 @@ on:
   pull_request:
     branches: [ "wlx" ]
   workflow_dispatch:
-  schedule:
-    - cron: '0 20 * * *'
+#   schedule:
+#     - cron: '0 20 * * *'
 
 permissions:
   contents: read
