@@ -83,7 +83,7 @@ class HitCarder(object):
         """Get hitcard form, compare with old form """
         res = self.sess.get(self.base_url)
         html = res.content.decode()
-
+        print("new:", res)
         try:
             new_form = re.findall(r'<ul>[\s\S]*?</ul>', html)[0]
         except IndexError as _:
