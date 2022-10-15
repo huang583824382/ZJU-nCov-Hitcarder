@@ -83,13 +83,15 @@ class HitCarder(object):
         """Get hitcard form, compare with old form """
         res = self.sess.get(self.base_url)
         html = res.content.decode()
-        print("new:", res)
+        
         try:
             new_form = re.findall(r'<ul>[\s\S]*?</ul>', html)[0]
         except IndexError as _:
             raise RegexMatchError('Relative info not found in html with regex')
 
         with open("form.txt", "r", encoding="utf-8") as f:
+            print("new:",  new_form)
+            print("old:", f.read()
             if new_form == f.read():
                 return True
         #with open("form.txt", "w", encoding="utf-8") as f:
