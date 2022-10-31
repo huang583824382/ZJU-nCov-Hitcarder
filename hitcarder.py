@@ -92,10 +92,10 @@ class HitCarder(object):
         with open("form.txt", "r", encoding="utf-8") as f:
             old_form = re.findall(r'<ul>[\s\S]*?</ul>', f.read())[0]
             if new_form == old_form:
-                print("equal")
+                print("equal 1")
                 return True
             else:
-                print("not equal")
+                print("not equal 1")
                 return False
 
     def get_info(self, html=None):
