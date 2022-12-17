@@ -96,6 +96,7 @@ class HitCarder(object):
                 return True
             else:
                 print("not equal 1")
+                print(new_form)
                 return False
 
     def get_info(self, html=None):
