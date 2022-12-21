@@ -83,21 +83,18 @@ class HitCarder(object):
         """Get hitcard form, compare with old form """
         res = self.sess.get(self.base_url)
         html = res.content.decode()
-        
+
         try:
             new_form = re.findall(r'<ul>[\s\S]*?</ul>', html)[0]
         except IndexError as _:
             raise RegexMatchError('Relative info not found in html with regex')
 
         with open("form.txt", "r", encoding="utf-8") as f:
-            old_form = re.findall(r'<ul>[\s\S]*?</ul>', f.read())[0]
-            if new_form == old_form:
-                print("equal 1")
+            if new_form == f.read():
                 return True
-            else:
-                print("not equal 1")
-                print(new_form)
-                return False
+        #with open("form.txt", "w", encoding="utf-8") as f:
+        #     f.write(new_form)
+        return False
 
     def get_info(self, html=None):
         """Get hit card info, which is the old info with updated new time."""
@@ -134,16 +131,10 @@ class HitCarder(object):
         # form change
         new_info['szgjcs'] = ""
         new_info['zgfx14rfhsj'] = ""
-        new_info['geo_api_info'] = old_info['geo_api_info'] # 定位
-        new_info['address'] = old_info['address']
-        new_info['area'] = old_info['area']
-        new_info['city'] = old_info['city']
         new_info['ismoved'] = 0
         new_info['sfzx'] = old_info['sfzx'] # 在校
-        new_info['sfymqjczrj'] = old_info['sfymqjczrj'] # 入境
         new_info['sfqrxxss'] = 1 # 属实
         new_info['campus'] = '紫金港校区' #校区
-        new_info['internship'] = old_info['internship'] # 实习
         #new_info['verifyCode'] =  ocr.classification(resp.content)#验证码
 
         self.info = new_info
